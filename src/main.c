@@ -1,16 +1,16 @@
-#include <stdint.h>
-#include "stm32f1xx_hal.h"
-#include "system_stm32f1xx.h"
+#include "system.h"
 
 int main(void) {
   int i = 0;
   uint32_t tick = 0;
 
-  HAL_Init();
+  system_init();
 
-  for(i = 0; i < 100; i++) {
+  for (i = 0; i < 100; i++) {
+    sleep_ms(100);
   }
 
-  HAL_DeInit();
+  system_exit();
+
   return 0;
 }

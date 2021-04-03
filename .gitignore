@@ -53,3 +53,5 @@ dkms.conf
 .sconsign.dblite
 
 *.bin
+
+tags
