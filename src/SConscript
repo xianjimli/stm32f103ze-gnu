@@ -1,0 +1,7 @@
+import os
+
+SOURCES=Glob('*.c')
+
+env=DefaultEnvironment().Clone()
+env.Program(os.path.join(os.environ['APP_BIN'], 'demo.elf'), SOURCES, LIBS=['stm32f103'])
+

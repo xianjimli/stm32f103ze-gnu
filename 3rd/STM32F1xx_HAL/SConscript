@@ -1,0 +1,9 @@
+import os
+
+SOURCES=Glob('STM32F1xx_HAL_Driver/Src/*.c') + Glob('system/*.c') + [
+  'system/startup_stm32f103xe.s'
+]
+
+env=DefaultEnvironment().Clone()
+env.Library(os.path.join(os.environ['APP_LIB'], 'stm32f103'), SOURCES)
+
