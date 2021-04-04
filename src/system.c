@@ -2,6 +2,7 @@
 #include "system_stm32f1xx.h"
 
 #include "system.h"
+extern void initialise_monitor_handles(void);
 
 // from https://www.programmersought.com/article/50213573865/
 
@@ -64,6 +65,7 @@ void sleep_ms(uint32_t ms) {
 }
 
 int system_init(void) {
+  initialise_monitor_handles();
   HAL_Init();
   SystemClock_Config();
   MX_NVIC_Init();
@@ -75,4 +77,25 @@ int system_exit(void) {
   HAL_DeInit();
 
   return 0;
+}
+
+#include "debug.h"
+#include "printf.h"
+#include <stdarg.h>
+
+void _putchar(char character) {}
+
+int system_log(const char *format, ...) {
+  int ret = 0;
+  va_list va;
+  char str[32];
+  int size = sizeof(str);
+
+  va_start(va, format);
+  ret = vsnprintf_(str, size, format, va);
+  va_end(va);
+
+  dbputs(str);
+
+  return ret;
 }

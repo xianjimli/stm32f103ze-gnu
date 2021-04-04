@@ -3,7 +3,7 @@ import os
 
 APP_ASFLAGS = '-mthumb -mcpu=cortex-m3  '
 APP_CCFLAGS = '-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -mthumb -mcpu=cortex-m3 -g -DSTM32F103xE '
-APP_LINKFLAGS = '-mthumb -mcpu=cortex-m3 -T stm32_flash.ld -Wl,-cref,-u,Reset_Handler -Wl,-Map=test.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group '
+APP_LINKFLAGS = '-mthumb -mcpu=cortex-m3 -T stm32_flash.ld -Wl,-cref,-u,Reset_Handler -Wl,-Map=test.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group --specs=rdimon.specs'
 APP_ROOT=os.getcwd()
 APP_LIB=os.path.join(APP_ROOT, "lib")
 APP_BIN=os.path.join(APP_ROOT, "bin")

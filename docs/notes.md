@@ -32,7 +32,9 @@ cp ./CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c system
 
 ## 准备stm32\_flash.ld文件
 
-到网上找一个模版改一下(github上有很多，但是我忘记从哪里弄来的了)。
+```
+cp 3rd/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/linker/STM32F103XE_FLASH.ld stm32_flash.ld
+```
 
 ## 准备openocd的配置
 
@@ -43,4 +45,9 @@ https://github.com/rust-embedded/cortex-m-quickstart/blob/master/openocd.cfg
 https://github.com/rust-embedded/cortex-m-quickstart/blob/master/openocd.gdb
 ```
 
+## 参考资料
+ * https://bgamari.github.io/posts/2014-10-31-semihosting.html
+ * https://github.com/zhiyb/SRAMLoader/blob/0d38d09c973e88df3a9060dbbe02c2f5020e99bc/debug.h
+ * https://ww1.microchip.com/downloads/en/DeviceDoc/Frequently-Asked-Questions-4.9.3.26.txt
+ * https://blog.louie.lu/2016/11/27/arm-semihosting-%E7%B0%A1%E4%BB%8B%E8%88%87%E7%AF%84%E4%BE%8B/
 
