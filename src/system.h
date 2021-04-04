@@ -2,6 +2,7 @@
 #define MY_SYSTEM_H
 
 #include <stdint.h>
+#include "rtos.h"
 
 int system_init(void);
 int system_exit(void);

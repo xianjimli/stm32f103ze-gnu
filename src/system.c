@@ -1,6 +1,7 @@
 #include "stm32f1xx_hal.h"
 #include "system_stm32f1xx.h"
 
+#include "rtos.h"
 #include "system.h"
 extern void initialise_monitor_handles(void);
 
@@ -51,7 +52,10 @@ static void MX_NVIC_Init(void) {
 
 static volatile uint64_t g_sys_tick;
 
-void SysTick_Handler(void) { g_sys_tick++; }
+void SysTick_Handler(void) { 
+  g_sys_tick++; 
+  rtos_tick();
+}
 
 uint64_t get_time_ms64() { return g_sys_tick; }
 
@@ -70,10 +74,13 @@ int system_init(void) {
   SystemClock_Config();
   MX_NVIC_Init();
 
+  rtos_init();
+
   return 0;
 }
 
 int system_exit(void) {
+  
   HAL_DeInit();
 
   return 0;

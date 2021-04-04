@@ -13,6 +13,14 @@ os.environ['APP_BIN'] = APP_BIN
 
 APP_LIBS =[]
 APP_CPPPATH=[
+  os.path.join(APP_ROOT, 'src'),
+  os.path.join(APP_ROOT, 'src/TencentOS/arch/arm/arm-v7m/cortex-m3/gcc'),
+  os.path.join(APP_ROOT, 'src/TencentOS/kernel/pm/include'),
+  os.path.join(APP_ROOT, 'src/TencentOS/kernel/core/include'),
+  os.path.join(APP_ROOT, 'src/TencentOS/kernel/hal/include'),
+  os.path.join(APP_ROOT, 'src/TencentOS/kernel/evtdrv/include'),
+  os.path.join(APP_ROOT, 'src/TencentOS/arch/arm/arm-v7m/common/include'),
+  os.path.join(APP_ROOT, 'src/TencentOS/TOS-CONFIG/'),
   os.path.join(APP_ROOT, '3rd/STM32F1xx_HAL/system'),
   os.path.join(APP_ROOT, '3rd/STM32F1xx_HAL/CMSIS/Include'),
   os.path.join(APP_ROOT, '3rd/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc'),

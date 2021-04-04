@@ -1,6 +1,9 @@
 import os
 
-SOURCES=Glob('*.c')
+SOURCES=Glob('*.c') + Glob('TencentOS/kernel/core/*.c') + Glob('TencentOS/kernel/evtdrv/*.c') + \
+  Glob('TencentOS/kernel/pm/tos_pm.c') + Glob('TencentOS/arch/arm/arm-v7m/common/*.c') + \
+  Glob('TencentOS/arch/arm/arm-v7m/cortex-m3/gcc/*.c') + Glob('TencentOS/arch/arm/arm-v7m/cortex-m3/gcc/*.S')
+
 
 env=DefaultEnvironment().Clone()
 env.Program(os.path.join(os.environ['APP_BIN'], 'demo.elf'), SOURCES, LIBS=['stm32f103'])
